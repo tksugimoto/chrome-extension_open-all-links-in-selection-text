@@ -1,0 +1,19 @@
+{
+	"name": "選択範囲内のURLをすべて開く",
+	"version": "0.1",
+	"manifest_version": 2,
+	
+	"icons": {
+		"128": "icon/icon.png"
+	},
+
+	"description": "選択範囲内のURLをすべて開く",
+
+	"permissions": [
+		"contextMenus"
+	],
+
+	"background": {
+		"scripts": ["background.js"]
+	}
+}
