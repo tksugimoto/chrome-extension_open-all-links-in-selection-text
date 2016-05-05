@@ -1,8 +1,14 @@
 
+var ID_OPEN_LINKS = "open-links-in-selection-text";
+
 chrome.contextMenus.create({
 	title: "選択範囲内のURLをすべて開く",
 	contexts: ["selection"],
-	onclick: function (info, tab){
+	id: ID_OPEN_LINKS
+});
+
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+	if (info.menuItemId === ID_OPEN_LINKS) {
 		var word = info.selectionText;
 		var urls = word.match(/https?:[/][/][-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g);
 		if (urls) {
