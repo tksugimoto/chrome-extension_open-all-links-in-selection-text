@@ -15,16 +15,16 @@ chrome.contextMenus.create({
 				var wId = windowInfo.id;
 				chrome.windows.update(wId, {
 					state: "maximized"
-				}, function (){});
+				});
 				urls.splice(0, 1);
 				urls.forEach(function (url) {
 					chrome.tabs.create({
 						url: url,
 						windowId: wId,
 						index: 0
-					}, function() {});
+					});
 				});
 			});
 		}
 	}
-}, function (){});
+});
