@@ -1,11 +1,16 @@
 
 var ID_OPEN_LINKS = "open-links-in-selection-text";
 
-chrome.contextMenus.create({
-	title: "選択範囲内のURLをすべて開く",
-	contexts: ["selection"],
-	id: ID_OPEN_LINKS
-});
+function createContextMenus() {
+	chrome.contextMenus.create({
+		title: "選択範囲内のURLをすべて開く",
+		contexts: ["selection"],
+		id: ID_OPEN_LINKS
+	});
+}
+
+chrome.runtime.onInstalled.addListener(createContextMenus);
+chrome.runtime.onStartup.addListener(createContextMenus);
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
 	if (info.menuItemId === ID_OPEN_LINKS) {
